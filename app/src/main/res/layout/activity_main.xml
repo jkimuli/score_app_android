@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.julius.basketballscoreapp.MainActivity">
+
+
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:enabled="true"
+        android:onClick="startGame"
+        android:text="Start Game"
+        android:textColor="@android:color/holo_orange_light" />
+
+    <Button
+        android:id="@+id/button_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/button_start"
+        android:layout_marginEnd="19dp"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="endGame"
+        android:text="End Game"
+        android:textColor="@android:color/holo_orange_light" />
+
+    <TextView
+        android:id="@+id/textView_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_start"
+        android:layout_below="@+id/button_start"
+        android:layout_marginTop="27dp"
+        android:text="Team A" />
+
+    <TextView
+        android:id="@+id/textView_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_A"
+        android:layout_alignStart="@+id/button_end"
+        android:text="Team B" />
+
+    <Button
+        android:id="@+id/button_score_a_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView_A"
+        android:layout_below="@+id/textView_A"
+        android:layout_marginTop="11dp"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_a_score"
+        android:text="@string/string_3_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_score_a_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_score_a_3"
+        android:layout_below="@+id/button_score_a_3"
+        android:layout_marginTop="19dp"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_a_score"
+        android:text="@string/string_2_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_score_a_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_score_a_2"
+        android:layout_below="@+id/button_score_a_2"
+        android:layout_marginTop="36dp"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_a_score"
+        android:text="@string/string_1_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_score_b_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView_B"
+        android:layout_alignTop="@+id/button_score_a_3"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_b_score"
+        android:text="@string/string_3_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_score_b_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_score_a_2"
+        android:layout_alignBottom="@+id/button_score_a_2"
+        android:layout_alignStart="@+id/button_score_b_3"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_b_score"
+        android:text="@string/string_2_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_score_b_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView_total"
+        android:layout_alignStart="@+id/button_score_b_2"
+        android:background="@color/colorPrimary"
+        android:enabled="false"
+        android:onClick="set_team_b_score"
+        android:text="@string/string_1_pointer"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_score_a_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Total Scores"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView_score_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_score_a_1"
+        android:layout_below="@+id/textView_total"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="18dp"
+        android:text="0"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="72sp" />
+
+    <TextView
+        android:id="@+id/textView_score_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_score_A"
+        android:layout_alignBottom="@+id/textView_score_A"
+        android:layout_alignEnd="@+id/button_score_b_1"
+        android:layout_marginEnd="14dp"
+        android:text="0"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="72sp" />
+</RelativeLayout>
