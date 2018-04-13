@@ -3,4 +3,7 @@
     <string name="string_3_pointer">+3</string>
     <string name="string_2_pointer">+2</string>
     <string name="string_1_pointer">+1</string>
+    <string name="string_team_a">Team A</string>
+    <string name="string_team_b">Team B</string>
+
 </resources>

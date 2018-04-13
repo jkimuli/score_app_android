@@ -19,7 +19,8 @@
         android:enabled="true"
         android:onClick="startGame"
         android:text="Start Game"
-        android:textColor="@android:color/holo_orange_light" />
+        android:textColor="@android:color/holo_orange_light"
+        android:padding="5dp"/>
 
     <Button
         android:id="@+id/button_end"
@@ -32,7 +33,8 @@
         android:enabled="false"
         android:onClick="endGame"
         android:text="End Game"
-        android:textColor="@android:color/holo_orange_light" />
+        android:textColor="@android:color/holo_orange_light"
+        android:padding="5dp"/>
 
     <TextView
         android:id="@+id/textView_A"
@@ -41,7 +43,8 @@
         android:layout_alignStart="@+id/button_start"
         android:layout_below="@+id/button_start"
         android:layout_marginTop="27dp"
-        android:text="Team A" />
+        android:text="@string/string_team_a"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView_B"
@@ -49,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView_A"
         android:layout_alignStart="@+id/button_end"
-        android:text="Team B" />
+        android:text="@string/string_team_b"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button_score_a_3"

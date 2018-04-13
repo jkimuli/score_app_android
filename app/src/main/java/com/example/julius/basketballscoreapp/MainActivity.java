@@ -1,9 +1,14 @@
 package com.example.julius.basketballscoreapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         private Button end_game;
         private Button start_game;
 
+        private EditText team_a;
+        private EditText team_b;
+
+        private TextView team_a_txt;
+        private TextView team_b_txt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
         end_game = (Button)findViewById(R.id.button_end);
         start_game = (Button)findViewById(R.id.button_start);
 
+        //team_a = (EditText)findViewById(R.id.editText_A);
+        //team_b = (EditText)findViewById(R.id.editText_B);
+
+        team_a_txt = (TextView) findViewById(R.id.textView_A);
+        team_b_txt = (TextView)findViewById(R.id.textView_B);
+
 
     }
 
@@ -58,20 +75,59 @@ public class MainActivity extends AppCompatActivity {
         team_a_score.setText(Integer.toString(mScore_A));
         team_b_score.setText(Integer.toString(mScore_B));
 
-        // enable end game button and the point buttons
+        // display an alert dialog to enter team names
 
-        end_game.setEnabled(true);
-        team_a_1.setEnabled(true);
-        team_a_2.setEnabled(true);
-        team_a_3.setEnabled(true);
-        team_b_1.setEnabled(true);
-        team_b_2.setEnabled(true);
-        team_b_3.setEnabled(true);
+        final View dialog_view = this.getLayoutInflater().inflate(R.layout.teams,null);
 
-        //disable start game button
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this,AlertDialog.THEME_HOLO_LIGHT);
+        builder.setTitle("Enter the team names");
+        builder.setView(dialog_view);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
-        start_game.setEnabled(false);
+                team_a = (EditText)dialog_view.findViewById(R.id.editText_A);
+                team_b = (EditText)dialog_view.findViewById(R.id.editText_B);
 
+                if(TextUtils.isEmpty(team_a.getText().toString()) || TextUtils.isEmpty(team_b.getText().toString())){
+
+                    dialogInterface.dismiss(); // dismiss dialog if any of the team names are missing
+
+                }
+
+                else{
+
+                    team_a_txt.setText(team_a.getText().toString());
+                    team_b_txt.setText(team_b.getText().toString());
+
+                    // enable end game button and the point buttons
+
+                    end_game.setEnabled(true);
+                    team_a_1.setEnabled(true);
+                    team_a_2.setEnabled(true);
+                    team_a_3.setEnabled(true);
+                    team_b_1.setEnabled(true);
+                    team_b_2.setEnabled(true);
+                    team_b_3.setEnabled(true);
+
+                    //disable start game button
+
+                    start_game.setEnabled(false);
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.cancel();
+
+            }
+        });
+
+        builder.show();
 
     }
 
@@ -87,9 +143,18 @@ public class MainActivity extends AppCompatActivity {
         team_b_2.setEnabled(false);
         team_b_3.setEnabled(false);
 
+        // reset the team names to the default
+
+        team_a_txt.setText(R.string.string_team_a);
+        team_b_txt.setText(R.string.string_team_b);
+
         // enable the start game button
 
         start_game.setEnabled(true);
+
+        // save the scores to a file on the device
+
+
 
     }
 
@@ -138,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             default:
-                throw new RuntimeException("Unkown Button ID");
+                throw new RuntimeException("Unknown Button ID");
         }
 
     }
